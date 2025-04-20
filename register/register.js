@@ -129,6 +129,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    //changes for git
+
     function simulateRegistration() {
         const registerBtn = document.querySelector('.register-btn');
         const originalBtnText = registerBtn.textContent;
