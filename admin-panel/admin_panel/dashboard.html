@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Admin Dashboard</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .notification-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 12px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Main Content Area */
+        main {
+            display: flex;
+            margin-top: 70px;
+            flex: 1;
+        }
+
+        /* Sidebar for profile scroll */
+        .sidebar {
+            width: 250px;
+            background-color: #34495e;
+            color: white;
+            padding: 20px 0;
+            height: calc(100vh - 70px);
+            position: fixed;
+            overflow-y: auto;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            padding: 0 20px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 15px;
+        }
+
+        .profile-list {
+            list-style: none;
+        }
+
+        .profile-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .profile-item:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .profile-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-weight: 500;
+        }
+
+        .profile-role {
+            font-size: 12px;
+            color: #bdc3c7;
+        }
+
+        .content-area {
+            flex: 1;
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Blog<span>Admin</span></div>
+        <div class="header-actions">
+            <div class="notification-icon">
+                📣
+                <div class="notification-count">3</div>
+            </div>
+            <div class="user-profile">
+                <div class="user-avatar">JD</div>
+                <div>John Doe</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Sidebar with Profile Scroll -->
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Team Members</h3>
+            <ul class="profile-list">
+                <li class="profile-item">
+                    <div class="profile-avatar">JD</div>
+                    <div class="profile-info">
+                        <div class="profile-name">John Doe</div>
+                        <div class="profile-role">Admin</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">AS</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Alice Smith</div>
+                        <div class="profile-role">Editor</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">RJ</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Robert Johnson</div>
+                        <div class="profile-role">Writer</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">EW</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Emma Wilson</div>
+                        <div class="profile-role">Writer</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">MB</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Michael Brown</div>
+                        <div class="profile-role">Designer</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">SL</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Sarah Lee</div>
+                        <div class="profile-role">Editor</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">DT</div>
+                    <div class="profile-info">
+                        <div class="profile-name">David Thompson</div>
+                        <div class="profile-role">Writer</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">JM</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Jennifer Miller</div>
+                        <div class="profile-role">SEO Specialist</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">KP</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Kevin Parker</div>
+                        <div class="profile-role">Contributor</div>
+                    </div>
+                </li>
+                <li class="profile-item">
+                    <div class="profile-avatar">LG</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Laura Garcia</div>
+                        <div class="profile-role">Social Media</div>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <h1>Dashboard</h1>
+            <p>Welcome to your blog admin dashboard!</p>
+            <!-- Additional dashboard content would go here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Help</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 BlogAdmin Dashboard. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Admin<span>Panel</span></h1>
+        </div>
+        <form class="register-form">
+            <div class="form-header">
+                <h2>Create Admin Account</h2>
+                <p>Fill in the details below to register</p>
+            </div>
+            
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="input-field" placeholder="Choose a username" required>
+                <div class="error-message">Username must be at least 5 characters</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="input-field" placeholder="Enter your email address" required>
+                <div class="error-message">Please enter a valid email address</div>
+            </div>
+            
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="input-field" placeholder="Create a password" required>
+                    <div class="error-message">Password must be at least 8 characters</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="input-field" placeholder="Confirm your password" required>
+                    <div class="error-message">Passwords do not match</div>
+                </div>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            
+            <button type="submit" class="btn">Register Now</button>
+            
+            <div class="form-footer">
+                Already have an account? <a href="../login/login.html">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

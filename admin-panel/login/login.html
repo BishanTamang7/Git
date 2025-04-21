@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Admin<span>Panel</span></h1>
+        </div>
+        <form class="login-form">
+            <div class="form-header">
+                <h2>Admin Login</h2>
+                <p>Enter your credentials to access the dashboard</p>
+            </div>
+            
+            <div class="input-group">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" class="input-field" placeholder="Enter your username or email" required>
+                <div class="error-message">Please enter your username or email</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="input-field" placeholder="Enter your password" required>
+                <div class="error-message">Please enter your password</div>
+            </div>
+            
+            <div class="remember-forgot">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn">Login</button>
+            
+            <div class="form-footer">
+                Don't have an account? <a href="../register/register.html">Register</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
