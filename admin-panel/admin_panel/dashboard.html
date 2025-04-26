@@ -4,315 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Admin Dashboard</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #3498db;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .notification-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .notification-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: #e74c3c;
-            color: white;
-            font-size: 12px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #3498db;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* Main Content Area */
-        main {
-            display: flex;
-            margin-top: 70px;
-            flex: 1;
-        }
-
-        /* Sidebar for profile scroll */
-        .sidebar {
-            width: 250px;
-            background-color: #34495e;
-            color: white;
-            padding: 20px 0;
-            height: calc(100vh - 70px);
-            position: fixed;
-            overflow-y: auto;
-        }
-
-        .sidebar-title {
-            font-size: 18px;
-            padding: 0 20px 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 15px;
-        }
-
-        .profile-list {
-            list-style: none;
-        }
-
-        .profile-item {
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background-color 0.3s;
-            cursor: pointer;
-        }
-
-        .profile-item:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        .profile-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: #3498db;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .profile-info {
-            flex: 1;
-        }
-
-        .profile-name {
-            font-weight: 500;
-        }
-
-        .profile-role {
-            font-size: 12px;
-            color: #bdc3c7;
-        }
-
-        .content-area {
-            flex: 1;
-            margin-left: 250px;
-            padding: 20px;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 15px 30px;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links a {
-            color: #bdc3c7;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .copyright {
-            color: #bdc3c7;
-            font-size: 14px;
-        }
-    </style>
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">Blog<span>Admin</span></div>
-        <div class="header-actions">
-            <div class="notification-icon">
-                📣
-                <div class="notification-count">3</div>
-            </div>
-            <div class="user-profile">
-                <div class="user-avatar">JD</div>
-                <div>John Doe</div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content Area -->
-    <main>
-        <!-- Sidebar with Profile Scroll -->
+    <div class="dashboard">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <h3 class="sidebar-title">Team Members</h3>
-            <ul class="profile-list">
-                <li class="profile-item">
-                    <div class="profile-avatar">JD</div>
-                    <div class="profile-info">
-                        <div class="profile-name">John Doe</div>
-                        <div class="profile-role">Admin</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">AS</div>
-                    <div class="profile-info">
-                        <div class="profile-name">Alice Smith</div>
-                        <div class="profile-role">Editor</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">RJ</div>
-                    <div class="profile-info">
-                        <div class="profile-name">Robert Johnson</div>
-                        <div class="profile-role">Writer</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">EW</div>
-                    <div class="profile-info">
-                        <div class="profile-name">Emma Wilson</div>
-                        <div class="profile-role">Writer</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">MB</div>
-                    <div class="profile-info">
-                        <div class="profile-name">Michael Brown</div>
-                        <div class="profile-role">Designer</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">SL</div>
-                    <div class="profile-info">
-                        <div class="profile-name">Sarah Lee</div>
-                        <div class="profile-role">Editor</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">DT</div>
-                    <div class="profile-info">
-                        <div class="profile-name">David Thompson</div>
-                        <div class="profile-role">Writer</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">JM</div>
-                    <div class="profile-info">
-                        <div class="profile-name">Jennifer Miller</div>
-                        <div class="profile-role">SEO Specialist</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">KP</div>
-                    <div class="profile-info">
-                        <div class="profile-name">Kevin Parker</div>
-                        <div class="profile-role">Contributor</div>
-                    </div>
-                </li>
-                <li class="profile-item">
-                    <div class="profile-avatar">LG</div>
-                    <div class="profile-info">
-                        <div class="profile-name">Laura Garcia</div>
-                        <div class="profile-role">Social Media</div>
-                    </div>
-                </li>
-            </ul>
+            <div class="logo">
+                <h2>BlogAdmin</h2>
+            </div>
+            <nav class="menu">
+                <div class="menu-item active">
+                    <span class="menu-icon">📊</span>
+                    Dashboard
+                </div>
+                <div class="menu-item">
+                    <span class="menu-icon">📝</span>
+                    Posts
+                </div>
+                <div class="menu-item">
+                    <span class="menu-icon">🗂️</span>
+                    Categories
+                </div>
+                <div class="menu-item">
+                    <span class="menu-icon">👥</span>
+                    Users
+                </div>
+                <!-- Comments and Settings have been removed -->
+            </nav>
         </aside>
-
-        <!-- Main Content Area -->
-        <div class="content-area">
-            <h1>Dashboard</h1>
-            <p>Welcome to your blog admin dashboard!</p>
-            <!-- Additional dashboard content would go here -->
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">Help</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-search">
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+                <div class="header-user">
+                    <span>Admin User</span>
+                    <div class="user-avatar">A</div>
+                    <!-- User Dropdown Menu -->
+                    <div class="user-dropdown" id="userDropdown" style="display: none;">
+                        <div class="dropdown-item">
+                            <div class="dropdown-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="dropdown-text">Profile</div>
+                        </div>
+                        <div class="dropdown-item">
+                            <div class="dropdown-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                    <polyline points="16 17 21 12 16 7"></polyline>
+                                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                                </svg>
+                            </div>
+                            <div class="dropdown-text">Sign out</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Content Area -->
+            <div class="content">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                    <button class="btn">+ New Post</button>
+                </div>
+                
+                <!-- Stats Cards -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <h3>Total Posts</h3>
+                        <div class="value">148</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Comments</h3>
+                        <div class="value">493</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Categories</h3>
+                        <div class="value">12</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Users</h3>
+                        <div class="value">24</div>
+                    </div>
+                </div>
+                
+                <!-- Recent Posts -->
+                <div class="posts-list">
+                    <h2>Recent Posts</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10 Tips for Better Blog Writing</td>
+                                <td>John Doe</td>
+                                <td>Writing</td>
+                                <td>Apr 19, 2025</td>
+                                <td><span class="status published">Published</span></td>
+                                <td>
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Getting Started with CSS Grid</td>
+                                <td>Jane Smith</td>
+                                <td>Web Dev</td>
+                                <td>Apr 17, 2025</td>
+                                <td><span class="status published">Published</span></td>
+                                <td>
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The Future of Content Marketing</td>
+                                <td>Admin User</td>
+                                <td>Marketing</td>
+                                <td>Apr 15, 2025</td>
+                                <td><span class="status draft">Draft</span></td>
+                                <td>
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Photography Tips for Bloggers</td>
+                                <td>Mark Johnson</td>
+                                <td>Photography</td>
+                                <td>Apr 12, 2025</td>
+                                <td><span class="status published">Published</span></td>
+                                <td>
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SEO Best Practices for 2025</td>
+                                <td>Sarah Williams</td>
+                                <td>SEO</td>
+                                <td>Apr 10, 2025</td>
+                                <td><span class="status draft">Draft</span></td>
+                                <td>
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 BlogAdmin Dashboard. All rights reserved.
-            </div>
-        </div>
-    </footer>
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
 </body>
 </html>
